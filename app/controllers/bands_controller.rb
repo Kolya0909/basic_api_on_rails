@@ -4,7 +4,6 @@ class BandsController < ApplicationController
   # GET /bands
   def index
     @bands = Band.all
-
     render json: @bands
   end
 
@@ -23,6 +22,10 @@ class BandsController < ApplicationController
       render json: @band.errors, status: :unprocessable_entity
     end
   end
+
+  def edit
+    @band = Band.find(params[:id])
+  end  
 
   # PATCH/PUT /bands/1
   def update
